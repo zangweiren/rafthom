@@ -1,0 +1,18 @@
+#配置示例
+test:
+  prop: provider-sample-test3
+
+#PerformanceMonitorInterceptor配置
+performance-monitor:
+    warningThreshold: 1000    #方法执行超时预警，单位：毫秒
+    statFrequency: 2          #统计周期，单位：次
+    isLoggerPrint: true       #输出统计数据到日志
+    isLoggerSave: true        #保存统计数据
+
+#StandardAndLoggerInterceptor配置
+standard-and-logger:
+  requiredRequestParams: reqNo,reqTime,client,clientVer,apiVer
+  requiredResponseParams: respCode,respMsg,respNo,respTime,data
+  isLoggerPrint: true                #输出数据到日志
+  isLoggerSave: true                 #保存数据
+  isLoggerHeaderAndCookie: true      #输出Header和Cookie到日志
