@@ -2,17 +2,38 @@
 test:
   prop: provider-sample-yml
 
-#PerformanceMonitorInterceptor配置
-performanceMonitor:
-  warningThreshold: 1000    #方法执行超时预警，单位：毫秒
-  statFrequency: 2          #统计周期，单位：次
-  isLoggerPrint: true       #输出统计数据到日志
-  isLoggerSave: true        #保存统计数据
-
-#StandardAndLoggerInterceptor配置
-standardAndLogger:
-  requiredRequestParams: reqNo,reqTime,client,clientVer,apiVer
-  requiredResponseParams: respCode,respMsg,respNo,respTime,data
-  isLoggerPrint: true                #输出数据到日志
-  isLoggerSave: true                 #保存数据
-  isLoggerHeaderAndCookie: true      #输出Header和Cookie到日志
+rafthom:
+  #PerformanceMonitorAspect配置
+  performanceMonitor:
+    enable: true
+    warningThreshold: 1000    #方法执行超时预警，单位：毫秒
+    isLoggerPrint: true       #输出统计数据到日志
+    isLoggerSave: true        #保存统计数据
+    dataRepositoryBean: DefaultPerformanceMonitorDataRepository
+  #StandardCheckAspect配置
+  standardCheck:
+    requiredRequestParams: reqNo,reqTime,client,clientVer,apiVer
+    requiredResponseParams: respCode,respMsg,respNo,respTime,data
+    enableLoadFromDB: false
+  #LoggerStackAspect配置
+  loggerStack:
+    enable: false
+    isLoggerRequestHeaders: true
+    isLoggerRequestCookies: true
+    isLoggerRequestParams: true
+    isLoggerMethodParams: true
+    isLoggerMethodException: true
+    isLoggerMethodElapsed: true
+    isLoggerSave: true                 #保存数据
+    dataRepositoryBean: DefaultLoggerStackDataRepository
+  #RafthomGlobalStackAspect配置，慎重开启，仅用于跟踪调试
+  globaltack:
+    enable: false
+    isLoggerRequestHeaders: true
+    isLoggerRequestCookies: true
+    isLoggerRequestParams: true
+    isLoggerMethodParams: true
+    isLoggerMethodException: true
+    isLoggerMethodElapsed: true
+    isLoggerSave: true                 #保存数据
+    dataRepositoryBean: DefaultLoggerStackDataRepository
