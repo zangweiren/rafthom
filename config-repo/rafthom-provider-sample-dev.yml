@@ -27,7 +27,7 @@ rafthom:
     isLoggerSave: true                 #保存数据
     dataRepositoryBean: DefaultLoggerStackDataRepository
   #RafthomGlobalStackAspect配置，慎重开启，仅用于跟踪调试
-  globaltack:
+  globalStack:
     enable: false
     isLoggerRequestHeaders: true
     isLoggerRequestCookies: true
